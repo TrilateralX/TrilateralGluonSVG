@@ -54,6 +54,7 @@ class HXCPP_CLASS_ATTRIBUTES TrilateralGluonSVG_obj : public  ::trilateralGluonC
 		::String quadtest_d;
 		::String cubictest_d;
 		void draw( ::trilateral3::drawing::Pen pen);
+		::Dynamic draw_dyn();
 
 		void cubicSVG( ::trilateral3::drawing::Pen pen);
 		::Dynamic cubicSVG_dyn();

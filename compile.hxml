@@ -44,3 +44,7 @@
 -cpp bin
 
 -debug
+
+--next
+-cmd cd bin
+-cmd open 'TrilateralGluonSVG-debug'

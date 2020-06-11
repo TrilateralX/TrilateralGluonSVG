@@ -9,7 +9,6 @@
 HX_DECLARE_CLASS3(gluon,webgl,native,GLContext)
 HX_DECLARE_CLASS3(gluon,webgl,native,GLFramebuffer)
 HX_DECLARE_CLASS3(gluon,webgl,native,GLObject)
-HX_DECLARE_CLASS3(gluon,webgl,native,GLProgram)
 HX_DECLARE_CLASS3(gluon,webgl,native,GLShader)
 
 namespace gluon{
@@ -50,9 +49,6 @@ class HXCPP_CLASS_ATTRIBUTES GLContext_obj : public ::hx::Object
 		::String __ToString() const { return HX_("GLContext",4a,be,b6,62); }
 
 		 ::gluon::webgl::native::GLFramebuffer defaultFramebuffer;
-		::String getProgramInfoLog( ::gluon::webgl::native::GLProgram program);
-		::Dynamic getProgramInfoLog_dyn();
-
 		 ::Dynamic getShaderParameter( ::gluon::webgl::native::GLShader shader,unsigned int pname);
 		::Dynamic getShaderParameter_dyn();
 

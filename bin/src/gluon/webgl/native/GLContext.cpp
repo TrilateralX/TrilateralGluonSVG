@@ -18,9 +18,6 @@
 #ifndef INCLUDED_gluon_webgl_native_GLObject
 #include <gluon/webgl/native/GLObject.h>
 #endif
-#ifndef INCLUDED_gluon_webgl_native_GLProgram
-#include <gluon/webgl/native/GLProgram.h>
-#endif
 #ifndef INCLUDED_gluon_webgl_native_GLShader
 #include <gluon/webgl/native/GLShader.h>
 #endif
@@ -74,26 +71,6 @@ Dynamic GLContext_obj::__Create(::hx::DynamicArray inArgs)
 bool GLContext_obj::_hx_isInstanceOf(int inClassId) {
 	return inClassId==(int)0x00000001 || inClassId==(int)0x084d1541;
 }
-
-::String GLContext_obj::getProgramInfoLog( ::gluon::webgl::native::GLProgram program){
-	int ref = 0;
-	unsigned int program1 = program->handle;
-	glGetProgramiv(program1,( (unsigned int)(35716) ),hx::StarOf(ref));
-	int maxInfoLogLength = ref;
-	int returnedStringLength = 0;
-	 ::typedarray::Uint8ArrayImpl infoLogBuffer = ::typedarray::_Uint8Array::Uint8Array_Impl__obj::_new(maxInfoLogLength,null(),null(),null(),null());
-	::cpp::Pointer< unsigned char > address = ( (::cpp::Pointer< unsigned char >)(::cpp::Pointer_obj::arrayElem(infoLogBuffer->buffer->b,infoLogBuffer->byteOffset)) );
-	unsigned char* address1 = address->get_raw();
-	unsigned char * infoLogBufferPtr = ( (unsigned char *)(address1) );
-	char* infoLogPointer = reinterpret_cast<char*>(infoLogBufferPtr);
-	unsigned int program2 = program->handle;
-	glGetProgramInfoLog(program2,maxInfoLogLength,hx::StarOf(returnedStringLength),infoLogPointer);
-	const char* cStr = ( (const char*)(infoLogPointer) );
-	return ::String(cStr);
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(GLContext_obj,getProgramInfoLog,return )
 
  ::Dynamic GLContext_obj::getShaderParameter( ::gluon::webgl::native::GLShader shader,unsigned int pname){
 	int result = 0;
@@ -183,9 +160,6 @@ void GLContext_obj::__Visit(HX_VISIT_PARAMS)
 	case 16:
 		if (HX_FIELD_EQ(inName,"getShaderInfoLog") ) { return ::hx::Val( getShaderInfoLog_dyn() ); }
 		break;
-	case 17:
-		if (HX_FIELD_EQ(inName,"getProgramInfoLog") ) { return ::hx::Val( getProgramInfoLog_dyn() ); }
-		break;
 	case 18:
 		if (HX_FIELD_EQ(inName,"defaultFramebuffer") ) { return ::hx::Val( defaultFramebuffer ); }
 		if (HX_FIELD_EQ(inName,"getShaderParameter") ) { return ::hx::Val( getShaderParameter_dyn() ); }
@@ -218,7 +192,6 @@ static ::hx::StaticInfo *GLContext_obj_sStaticStorageInfo = 0;
 
 static ::String GLContext_obj_sMemberFields[] = {
 	HX_("defaultFramebuffer",ac,79,67,39),
-	HX_("getProgramInfoLog",c8,f1,f2,cd),
 	HX_("getShaderParameter",ce,69,5b,36),
 	HX_("getShaderInfoLog",9b,bd,c8,f3),
 	HX_("shaderSource",e0,4d,1a,a2),

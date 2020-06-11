@@ -5,14 +5,6 @@
 #define INCLUDED_c8a65390b4b62196
 #include "/usr/local/lib/haxeLibrary/gluon/git/src/gluon/webgl/native/ES2Context.h"
 #endif
-#ifndef INCLUDED_66c800784bc86d2f
-#define INCLUDED_66c800784bc86d2f
-#include "linc_glfw.h"
-#endif
-#ifndef INCLUDED_2710e462964f946c
-#define INCLUDED_2710e462964f946c
-#include "stdlib.h"
-#endif
 #ifndef INCLUDED_Std
 #include <Std.h>
 #endif
@@ -34,12 +26,6 @@
 #ifndef INCLUDED_gluon_webgl_native_GLProgram
 #include <gluon/webgl/native/GLProgram.h>
 #endif
-#ifndef INCLUDED_gluon_webgl_native_GLShader
-#include <gluon/webgl/native/GLShader.h>
-#endif
-#ifndef INCLUDED_haxe_Exception
-#include <haxe/Exception.h>
-#endif
 #ifndef INCLUDED_haxe_io_ArrayBufferViewImpl
 #include <haxe/io/ArrayBufferViewImpl.h>
 #endif
@@ -58,268 +44,14 @@
 #ifndef INCLUDED_trilateralGluonChange_AppGL
 #include <trilateralGluonChange/AppGL.h>
 #endif
-#ifndef INCLUDED_typedarray_ArrayBufferView
-#include <typedarray/ArrayBufferView.h>
-#endif
-#ifndef INCLUDED_typedarray_ArrayBufferViewBase
-#include <typedarray/ArrayBufferViewBase.h>
-#endif
-#ifndef INCLUDED_typedarray_Float32ArrayImpl
-#include <typedarray/Float32ArrayImpl.h>
-#endif
 
 namespace trilateralGluonChange{
 
 void AppGL_obj::__construct(int width_,int height_){
             	HX_JUST_GC_STACKFRAME
 	this->penNodule =  ::trilateral3::nodule::PenNodule_obj::__alloc( HX_CTX );
-	this->gl = ::trilateralGluonChange::AppGL_obj::gl_;
 	this->width = width_;
 	this->height = height_;
-	void();
-	if (::hx::IsNotEq( glfwInit(),0 )) {
-		::cpp::Pointer<  GLFWmonitor > tmp = null();
-		::cpp::Pointer<  GLFWwindow > tmp1 = null();
-		::cpp::Pointer<  GLFWmonitor > tmp2 = tmp;
-		::cpp::Pointer<  GLFWwindow > tmp3 = tmp1;
-		::cpp::Pointer<  GLFWwindow > window = glfwCreateWindow(1000,1000,HX_("trilateralGluonChange",53,d5,ec,4e),tmp2,tmp3);
-		glfwMakeContextCurrent(window);
-		while((glfwWindowShouldClose(window) != 1)){
-			glfwPollEvents();
-		}
-	}
-	else {
-		HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(HX_("GLFW init fail",04,bf,61,bb)));
-	}
-	::trilateralGluonChange::AppGL_obj::appGL = ::hx::ObjectPtr<OBJ_>(this);
-	{
-		 ::gluon::webgl::native::GLContext gl = this->gl;
-		 ::gluon::webgl::native::GLContext this1 = gl;
-		unsigned int ref = glCreateProgram();
-		 ::gluon::webgl::native::GLProgram v;
-		if ((ref != 0)) {
-			v =  ::gluon::webgl::native::GLProgram_obj::__alloc( HX_CTX ,this1,ref);
-		}
-		else {
-			v = null();
-		}
-		::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this1,HX_("createProgram",e8,22,3c,dc));
-		 ::gluon::webgl::native::GLProgram program = v;
-		{
-			 ::gluon::webgl::native::GLContext this2 = gl;
-			unsigned int ref1 = glCreateShader(( (unsigned int)(35633) ));
-			 ::gluon::webgl::native::GLShader v1;
-			if ((ref1 != 0)) {
-				v1 =  ::gluon::webgl::native::GLShader_obj::__alloc( HX_CTX ,this2,ref1);
-			}
-			else {
-				v1 = null();
-			}
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this2,HX_("createShader",41,ff,75,3f));
-			 ::gluon::webgl::native::GLShader shader = v1;
-			{
-				gl->shaderSource(shader,((((((HX_("attribute vec3 vertexPosition;",31,27,01,79) + HX_("attribute vec4 vertexColor;",b8,a7,4a,43)) + HX_("varying vec4 vcol;",61,c8,5b,03)) + HX_("void main(void) {",4d,18,fb,21)) + HX_(" gl_Position = vec4(vertexPosition, 1.0);",1c,0c,87,98)) + HX_(" vcol = vertexColor;",75,ef,b6,2e)) + HX_("}",7d,00,00,00)));
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("shaderSource",e0,4d,1a,a2));
-			}
-			{
-				glCompileShader(shader->handle);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("compileShader",f8,70,b2,da));
-			}
-			 ::gluon::webgl::native::GLShader shader1;
-			 ::gluon::webgl::native::GLContext this3 = gl;
-			bool v2 = ( (bool)(this3->getShaderParameter(shader,( (unsigned int)(35713) ))) );
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this3,HX_("getShaderParameter",ce,69,5b,36));
-			if (!(v2)) {
-				 ::gluon::webgl::native::GLContext this1 = gl;
-				::String v = this1->getShaderInfoLog(shader);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this1,HX_("getShaderInfoLog",9b,bd,c8,f3));
-				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown((HX_("Error compiling shader. ",bf,50,4d,23) + v)));
-			}
-			else {
-				shader1 = shader;
-			}
-			glAttachShader(program->handle,shader1->handle);
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("attachShader",ca,d0,77,b2));
-		}
-		{
-			 ::gluon::webgl::native::GLContext this4 = gl;
-			unsigned int ref2 = glCreateShader(( (unsigned int)(35632) ));
-			 ::gluon::webgl::native::GLShader v3;
-			if ((ref2 != 0)) {
-				v3 =  ::gluon::webgl::native::GLShader_obj::__alloc( HX_CTX ,this4,ref2);
-			}
-			else {
-				v3 = null();
-			}
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this4,HX_("createShader",41,ff,75,3f));
-			 ::gluon::webgl::native::GLShader shader2 = v3;
-			{
-				gl->shaderSource(shader2,((((HX_("precision mediump float;",e6,f2,15,86) + HX_("varying vec4 vcol;",61,c8,5b,03)) + HX_("void main(void) {",4d,18,fb,21)) + HX_(" gl_FragColor = vcol;",25,af,1c,24)) + HX_("}",7d,00,00,00)));
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("shaderSource",e0,4d,1a,a2));
-			}
-			{
-				glCompileShader(shader2->handle);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("compileShader",f8,70,b2,da));
-			}
-			 ::gluon::webgl::native::GLShader shader3;
-			 ::gluon::webgl::native::GLContext this5 = gl;
-			bool v4 = ( (bool)(this5->getShaderParameter(shader2,( (unsigned int)(35713) ))) );
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this5,HX_("getShaderParameter",ce,69,5b,36));
-			if (!(v4)) {
-				 ::gluon::webgl::native::GLContext this1 = gl;
-				::String v = this1->getShaderInfoLog(shader2);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this1,HX_("getShaderInfoLog",9b,bd,c8,f3));
-				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown((HX_("Error compiling shader. ",bf,50,4d,23) + v)));
-			}
-			else {
-				shader3 = shader2;
-			}
-			glAttachShader(program->handle,shader3->handle);
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("attachShader",ca,d0,77,b2));
-		}
-		{
-			glLinkProgram(program->handle);
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("linkProgram",aa,ad,7b,89));
-		}
-		 ::gluon::webgl::native::GLProgram _hx_tmp;
-		int ref3 = 0;
-		unsigned int program1 = program->handle;
-		glGetProgramiv(program1,( (unsigned int)(35714) ),hx::StarOf(ref3));
-		bool v5 = ( (bool)(ref3) );
-		::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("getProgramParameter",3b,c3,9c,96));
-		if (!(v5)) {
-			 ::gluon::webgl::native::GLContext this1 = gl;
-			::String v = this1->getProgramInfoLog(program);
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this1,HX_("getProgramInfoLog",c8,f1,f2,cd));
-			HX_STACK_DO_THROW(::haxe::Exception_obj::thrown((HX_("Error linking program. ",46,e8,c7,f8) + v)));
-		}
-		else {
-			{
-				glValidateProgram(program->handle);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("validateProgram",8e,80,0f,ef));
-			}
-			int ref = 0;
-			unsigned int program1 = program->handle;
-			glGetProgramiv(program1,( (unsigned int)(35715) ),hx::StarOf(ref));
-			bool v = ( (bool)(ref) );
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("getProgramParameter",3b,c3,9c,96));
-			if (!(v)) {
-				 ::gluon::webgl::native::GLContext this1 = gl;
-				::String v = this1->getProgramInfoLog(program);
-				::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this1,HX_("getProgramInfoLog",c8,f1,f2,cd));
-				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown((HX_("Error validating program. ",21,2c,33,3d) + v)));
-			}
-			else {
-				{
-					{
-						unsigned int ref;
-						if (::hx::IsNotNull( program )) {
-							ref = program->handle;
-						}
-						else {
-							ref = ( (unsigned int)(0) );
-						}
-						glUseProgram(ref);
-					}
-					::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("useProgram",fd,6c,ac,f6));
-				}
-				_hx_tmp = program;
-			}
-		}
-		this->program = _hx_tmp;
-		this->draw(this->penNodule->pen);
-		 ::gluon::webgl::native::GLContext gl1 = this->gl;
-		 ::gluon::webgl::native::GLProgram program2 = this->program;
-		 ::haxe::io::ArrayBufferViewImpl this6 = this->penNodule->colorTriangles;
-		 ::Dynamic end = ((this6->byteLength >> 2) - 2);
-		 ::Dynamic data;
-		if (::hx::IsNull( end )) {
-			data = null();
-		}
-		else {
-			data = (( (int)(end) ) << 2);
-		}
-		 ::typedarray::Float32ArrayImpl data1 = ( ( ::typedarray::Float32ArrayImpl)(::haxe::io::_Float32Array::Float32Array_Impl__obj::fromData(this6->subarray(8,data))) );
-		 ::Dynamic isDynamic = true;
-		if (::hx::IsNull( isDynamic )) {
-			isDynamic = false;
-		}
-		 ::Dynamic isDynamic1 = isDynamic;
-		if (::hx::IsNull( isDynamic1 )) {
-			isDynamic1 = false;
-		}
-		 ::gluon::webgl::native::GLContext this7 = gl1;
-		unsigned int ref4 = ( (unsigned int)(0) );
-		glGenBuffers(1,hx::StarOf(ref4));
-		 ::gluon::webgl::native::GLBuffer v6;
-		if ((ref4 != 0)) {
-			v6 =  ::gluon::webgl::native::GLBuffer_obj::__alloc( HX_CTX ,this7,ref4);
-		}
-		else {
-			v6 = null();
-		}
-		::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(this7,HX_("createBuffer",1c,fd,e9,f2));
-		 ::gluon::webgl::native::GLBuffer buf = v6;
-		{
-			{
-				unsigned int ref5;
-				if (::hx::IsNotNull( buf )) {
-					ref5 = buf->handle;
-				}
-				else {
-					ref5 = ( (unsigned int)(0) );
-				}
-				glBindBuffer(( (unsigned int)(34962) ),ref5);
-			}
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("bindBuffer",9d,92,be,f8));
-		}
-		if (( (bool)(isDynamic1) )) {
-			int data = ( ( ::haxe::io::Bytes)(data1) )->length;
-			::cpp::Pointer< unsigned char > _hx_tmp = ( (::cpp::Pointer< unsigned char >)(::cpp::Pointer_obj::arrayElem(( ( ::haxe::io::Bytes)(data1) )->b,0)) );
-			glBufferData(( (unsigned int)(34962) ),( (::cpp::Int64)(data) ),( (const void *)(( (unsigned char *)(_hx_tmp->get_raw()) )) ),( (unsigned int)(35048) ));
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("bufferData",4a,bf,73,93));
-		}
-		else {
-			int data = ( ( ::haxe::io::Bytes)(data1) )->length;
-			::cpp::Pointer< unsigned char > _hx_tmp = ( (::cpp::Pointer< unsigned char >)(::cpp::Pointer_obj::arrayElem(( ( ::haxe::io::Bytes)(data1) )->b,0)) );
-			glBufferData(( (unsigned int)(34962) ),( (::cpp::Int64)(data) ),( (const void *)(( (unsigned char *)(_hx_tmp->get_raw()) )) ),( (unsigned int)(35044) ));
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("bufferData",4a,bf,73,93));
-		}
-		 ::gluon::webgl::native::GLBuffer vbo = buf;
-		const char* this8 = HX_("vertexPosition",2d,3c,14,50).utf8_str();
-		const char* nameCharStar = this8;
-		int v7 = glGetAttribLocation(program2->handle,nameCharStar);
-		::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("getAttribLocation",d5,1a,10,5d));
-		int posLoc = v7;
-		const char* this9 = HX_("vertexColor",5f,3b,98,5e).utf8_str();
-		const char* nameCharStar1 = this9;
-		int v8 = glGetAttribLocation(program2->handle,nameCharStar1);
-		::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("getAttribLocation",d5,1a,10,5d));
-		int colorLoc = v8;
-		{
-			{
-				const void * offsetAsPointer = reinterpret_cast<void*>(0);
-				glVertexAttribPointer(( (unsigned int)(posLoc) ),3,( (unsigned int)(5126) ),false,28,offsetAsPointer);
-			}
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("vertexAttribPointer",8f,04,b6,3f));
-		}
-		{
-			{
-				const void * offsetAsPointer1 = reinterpret_cast<void*>(12);
-				glVertexAttribPointer(( (unsigned int)(colorLoc) ),4,( (unsigned int)(5126) ),false,28,offsetAsPointer1);
-			}
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("vertexAttribPointer",8f,04,b6,3f));
-		}
-		{
-			glEnableVertexAttribArray(( (unsigned int)(posLoc) ));
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("enableVertexAttribArray",e8,46,5a,ac));
-		}
-		{
-			glEnableVertexAttribArray(( (unsigned int)(colorLoc) ));
-			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl1,HX_("enableVertexAttribArray",e8,46,5a,ac));
-		}
-		this->buf = vbo;
-	}
 }
 
 Dynamic AppGL_obj::__CreateEmpty() { return new AppGL_obj; }
@@ -337,15 +69,9 @@ bool AppGL_obj::_hx_isInstanceOf(int inClassId) {
 	return inClassId==(int)0x00000001 || inClassId==(int)0x49de47f3;
 }
 
-void AppGL_obj::draw( ::trilateral3::drawing::Pen pen){
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(AppGL_obj,draw,(void))
-
 void AppGL_obj::render(){
 	{
-		 ::gluon::webgl::native::GLContext gl = ::trilateralGluonChange::AppGL_obj::gl_;
+		 ::gluon::webgl::native::GLContext gl = this->gl;
 		{
 			glViewport(0,0,this->width,this->height);
 			::gluon::webgl::_GLContext::GLContext_Impl__obj::reportErrors(gl,HX_("viewport",66,4c,a5,9c));
@@ -423,27 +149,6 @@ void AppGL_obj::renderDraw( ::trilateral3::drawing::Pen pen){
 
 HX_DEFINE_DYNAMIC_FUNC1(AppGL_obj,renderDraw,(void))
 
- ::gluon::webgl::native::GLContext AppGL_obj::gl_;
-
- ::trilateralGluonChange::AppGL AppGL_obj::appGL;
-
-void AppGL_obj::init(){
-            	HX_JUST_GC_STACKFRAME
-	::trilateralGluonChange::AppGL_obj::gl_ =  ::gluon::webgl::native::GLContext_obj::__alloc( HX_CTX );
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC0(AppGL_obj,init,(void))
-
-void AppGL_obj::onFrame(){
-	__hxcpp_collect(true);
-	Float t_s =  ::__time_stamp();
-	::trilateralGluonChange::AppGL_obj::appGL->render();
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC0(AppGL_obj,onFrame,(void))
-
 
 ::hx::ObjectPtr< AppGL_obj > AppGL_obj::__new(int width_,int height_) {
 	::hx::ObjectPtr< AppGL_obj > __this = new AppGL_obj();
@@ -493,9 +198,6 @@ void AppGL_obj::__Visit(HX_VISIT_PARAMS)
 	case 3:
 		if (HX_FIELD_EQ(inName,"buf") ) { return ::hx::Val( buf ); }
 		break;
-	case 4:
-		if (HX_FIELD_EQ(inName,"draw") ) { return ::hx::Val( draw_dyn() ); }
-		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"width") ) { return ::hx::Val( width ); }
 		break;
@@ -513,24 +215,6 @@ void AppGL_obj::__Visit(HX_VISIT_PARAMS)
 		if (HX_FIELD_EQ(inName,"renderDraw") ) { return ::hx::Val( renderDraw_dyn() ); }
 	}
 	return super::__Field(inName,inCallProp);
-}
-
-bool AppGL_obj::__GetStatic(const ::String &inName, Dynamic &outValue, ::hx::PropertyAccess inCallProp)
-{
-	switch(inName.length) {
-	case 3:
-		if (HX_FIELD_EQ(inName,"gl_") ) { outValue = ( gl_ ); return true; }
-		break;
-	case 4:
-		if (HX_FIELD_EQ(inName,"init") ) { outValue = init_dyn(); return true; }
-		break;
-	case 5:
-		if (HX_FIELD_EQ(inName,"appGL") ) { outValue = ( appGL ); return true; }
-		break;
-	case 7:
-		if (HX_FIELD_EQ(inName,"onFrame") ) { outValue = onFrame_dyn(); return true; }
-	}
-	return false;
 }
 
 ::hx::Val AppGL_obj::__SetField(const ::String &inName,const ::hx::Val &inValue,::hx::PropertyAccess inCallProp)
@@ -557,18 +241,6 @@ bool AppGL_obj::__GetStatic(const ::String &inName, Dynamic &outValue, ::hx::Pro
 	return super::__SetField(inName,inValue,inCallProp);
 }
 
-bool AppGL_obj::__SetStatic(const ::String &inName,Dynamic &ioValue,::hx::PropertyAccess inCallProp)
-{
-	switch(inName.length) {
-	case 3:
-		if (HX_FIELD_EQ(inName,"gl_") ) { gl_=ioValue.Cast<  ::gluon::webgl::native::GLContext >(); return true; }
-		break;
-	case 5:
-		if (HX_FIELD_EQ(inName,"appGL") ) { appGL=ioValue.Cast<  ::trilateralGluonChange::AppGL >(); return true; }
-	}
-	return false;
-}
-
 void AppGL_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_("gl",25,5a,00,00));
@@ -590,11 +262,7 @@ static ::hx::StorageInfo AppGL_obj_sMemberStorageInfo[] = {
 	{::hx::fsObject /*  ::gluon::webgl::native::GLBuffer */ ,(int)offsetof(AppGL_obj,buf),HX_("buf",33,c3,4a,00)},
 	{ ::hx::fsUnknown, 0, null()}
 };
-static ::hx::StaticInfo AppGL_obj_sStaticStorageInfo[] = {
-	{::hx::fsObject /*  ::gluon::webgl::native::GLContext */ ,(void *) &AppGL_obj::gl_,HX_("gl_",9a,86,4e,00)},
-	{::hx::fsObject /*  ::trilateralGluonChange::AppGL */ ,(void *) &AppGL_obj::appGL,HX_("appGL",06,65,3b,24)},
-	{ ::hx::fsUnknown, 0, null()}
-};
+static ::hx::StaticInfo *AppGL_obj_sStaticStorageInfo = 0;
 #endif
 
 static ::String AppGL_obj_sMemberFields[] = {
@@ -604,33 +272,11 @@ static ::String AppGL_obj_sMemberFields[] = {
 	HX_("width",06,b6,62,ca),
 	HX_("height",e7,07,4c,02),
 	HX_("buf",33,c3,4a,00),
-	HX_("draw",04,2c,70,42),
 	HX_("render",56,6b,29,05),
 	HX_("renderDraw",7a,26,7a,df),
 	::String(null()) };
 
-static void AppGL_obj_sMarkStatics(HX_MARK_PARAMS) {
-	HX_MARK_MEMBER_NAME(AppGL_obj::gl_,"gl_");
-	HX_MARK_MEMBER_NAME(AppGL_obj::appGL,"appGL");
-};
-
-#ifdef HXCPP_VISIT_ALLOCS
-static void AppGL_obj_sVisitStatics(HX_VISIT_PARAMS) {
-	HX_VISIT_MEMBER_NAME(AppGL_obj::gl_,"gl_");
-	HX_VISIT_MEMBER_NAME(AppGL_obj::appGL,"appGL");
-};
-
-#endif
-
 ::hx::Class AppGL_obj::__mClass;
-
-static ::String AppGL_obj_sStaticFields[] = {
-	HX_("gl_",9a,86,4e,00),
-	HX_("appGL",06,65,3b,24),
-	HX_("init",10,3b,bb,45),
-	HX_("onFrame",8e,16,c1,9c),
-	::String(null())
-};
 
 void AppGL_obj::__register()
 {
@@ -641,15 +287,11 @@ void AppGL_obj::__register()
 	__mClass->mSuper = &super::__SGetClass();
 	__mClass->mConstructEmpty = &__CreateEmpty;
 	__mClass->mConstructArgs = &__Create;
-	__mClass->mGetStaticField = &AppGL_obj::__GetStatic;
-	__mClass->mSetStaticField = &AppGL_obj::__SetStatic;
-	__mClass->mMarkFunc = AppGL_obj_sMarkStatics;
-	__mClass->mStatics = ::hx::Class_obj::dupFunctions(AppGL_obj_sStaticFields);
+	__mClass->mGetStaticField = &::hx::Class_obj::GetNoStaticField;
+	__mClass->mSetStaticField = &::hx::Class_obj::SetNoStaticField;
+	__mClass->mStatics = ::hx::Class_obj::dupFunctions(0 /* sStaticFields */);
 	__mClass->mMembers = ::hx::Class_obj::dupFunctions(AppGL_obj_sMemberFields);
 	__mClass->mCanCast = ::hx::TCanCast< AppGL_obj >;
-#ifdef HXCPP_VISIT_ALLOCS
-	__mClass->mVisitFunc = AppGL_obj_sVisitStatics;
-#endif
 #ifdef HXCPP_SCRIPTABLE
 	__mClass->mMemberStorageInfo = AppGL_obj_sMemberStorageInfo;
 #endif

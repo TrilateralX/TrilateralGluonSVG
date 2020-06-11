@@ -73,6 +73,9 @@ class HXCPP_CLASS_ATTRIBUTES StoreF6_obj : public ::hx::Object
 		 ::Dynamic shift();
 		::Dynamic shift_dyn();
 
+		virtual ::String toString();
+		::Dynamic toString_dyn();
+
 		int count;
 		bool hasNext();
 		::Dynamic hasNext_dyn();

@@ -87,6 +87,20 @@ HX_DEFINE_DYNAMIC_FUNC1(StoreF6_obj,push,(void))
 
 HX_DEFINE_DYNAMIC_FUNC0(StoreF6_obj,shift,return )
 
+::String StoreF6_obj::toString(){
+	if (::hx::IsNull( this->s6 )) {
+		return (((((((((((HX_("",00,00,00,00) + this->s0) + HX_(", ",74,26,00,00)) + this->s1) + HX_(", ",74,26,00,00)) + this->s2) + HX_(", ",74,26,00,00)) + this->s3) + HX_(", ",74,26,00,00)) + this->s4) + HX_(", ",74,26,00,00)) + this->s5);
+	}
+	else {
+		::String _hx_tmp = (((((((((((HX_("",00,00,00,00) + this->s0) + HX_(", ",74,26,00,00)) + this->s1) + HX_(", ",74,26,00,00)) + this->s2) + HX_(", ",74,26,00,00)) + this->s3) + HX_(", ",74,26,00,00)) + this->s4) + HX_(", ",74,26,00,00)) + this->s5);
+		return (_hx_tmp + this->s6->toString());
+	}
+	return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(StoreF6_obj,toString,return )
+
 bool StoreF6_obj::hasNext(){
 	return (this->count < (this->l + 1));
 }
@@ -190,6 +204,9 @@ void StoreF6_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"hasNext") ) { return ::hx::Val( hasNext_dyn() ); }
+		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"toString") ) { return ::hx::Val( toString_dyn() ); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -256,6 +273,7 @@ static ::String StoreF6_obj_sMemberFields[] = {
 	HX_("s6",63,64,00,00),
 	HX_("push",da,11,61,4a),
 	HX_("shift",82,ec,22,7c),
+	HX_("toString",ac,d0,6e,38),
 	HX_("count",cf,44,63,4a),
 	HX_("hasNext",6d,a5,46,18),
 	HX_("next",f3,84,02,49),

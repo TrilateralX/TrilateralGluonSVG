@@ -65,6 +65,7 @@ bool SvgPath_obj::_hx_isInstanceOf(int inClassId) {
 	int count = 0;
 	this->store =  ::justPath::StoreF6_obj::__alloc( HX_CTX );
 	while((this->pos < this->l)){
+		::haxe::Log_obj::trace((((HX_("pos",94,5d,55,00) + this->pos) + HX_(" ",20,00,00,00)) + this->l),::hx::SourceInfo(HX_("justPath/SvgPath.hx",f3,2a,f9,4d),35,HX_("justPath.SvgPath",8c,a2,03,48),HX_("parse",33,90,55,bd)));
 		switch((int)(this->c)){
 			case (int)65: {
 				{
@@ -1210,7 +1211,11 @@ bool SvgPath_obj::_hx_isInstanceOf(int inClassId) {
 			}
 			break;
 			case (int)66: {
-				::haxe::Log_obj::trace(HX_("bearing - not implemented",90,1f,b8,d8),::hx::SourceInfo(HX_("justPath/SvgPath.hx",f3,2a,f9,4d),377,HX_("justPath.SvgPath",8c,a2,03,48),HX_("parse",33,90,55,bd)));
+				 ::Dynamic _hx_tmp = ::haxe::Log_obj::trace;
+				::String _hx_tmp1 = (((this->pos + HX_(" ",20,00,00,00)) + count) + HX_("  ",00,1c,00,00));
+				::String _hx_tmp2 = (_hx_tmp1 + ::Std_obj::string(this->store));
+				_hx_tmp(_hx_tmp2,::hx::SourceInfo(HX_("justPath/SvgPath.hx",f3,2a,f9,4d),378,HX_("justPath.SvgPath",8c,a2,03,48),HX_("parse",33,90,55,bd)));
+				::haxe::Log_obj::trace(HX_("bearing - not implemented",90,1f,b8,d8),::hx::SourceInfo(HX_("justPath/SvgPath.hx",f3,2a,f9,4d),379,HX_("justPath.SvgPath",8c,a2,03,48),HX_("parse",33,90,55,bd)));
 				HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(HX_("bearing not supported please remove",09,97,54,2d)));
 			}
 			break;

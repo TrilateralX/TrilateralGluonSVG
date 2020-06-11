@@ -41,9 +41,7 @@ class HXCPP_CLASS_ATTRIBUTES AppGL_obj : public ::hx::Object
 
 		HX_DO_RTTI_ALL;
 		::hx::Val __Field(const ::String &inString, ::hx::PropertyAccess inCallProp);
-		static bool __GetStatic(const ::String &inString, Dynamic &outValue, ::hx::PropertyAccess inCallProp);
 		::hx::Val __SetField(const ::String &inString,const ::hx::Val &inValue, ::hx::PropertyAccess inCallProp);
-		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, ::hx::PropertyAccess inCallProp);
 		void __GetFields(Array< ::String> &outFields);
 		static void __register();
 		void __Mark(HX_MARK_PARAMS);
@@ -51,23 +49,12 @@ class HXCPP_CLASS_ATTRIBUTES AppGL_obj : public ::hx::Object
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("AppGL",e6,d4,68,b7); }
 
-		static  ::gluon::webgl::native::GLContext gl_;
-		static  ::trilateralGluonChange::AppGL appGL;
-		static void init();
-		static ::Dynamic init_dyn();
-
-		static void onFrame();
-		static ::Dynamic onFrame_dyn();
-
 		 ::gluon::webgl::native::GLContext gl;
 		 ::gluon::webgl::native::GLProgram program;
 		 ::trilateral3::nodule::PenNodule penNodule;
 		int width;
 		int height;
 		 ::gluon::webgl::native::GLBuffer buf;
-		virtual void draw( ::trilateral3::drawing::Pen pen);
-		::Dynamic draw_dyn();
-
 		void render();
 		::Dynamic render_dyn();
 

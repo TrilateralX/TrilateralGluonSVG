@@ -10,9 +10,6 @@ extern "C" void __hxcpp_lib_main();
 #ifndef INCLUDED_TrilateralGluonSVG
 #include <TrilateralGluonSVG.h>
 #endif
-#ifndef INCLUDED_haxe_EntryPoint
-#include <haxe/EntryPoint.h>
-#endif
 #ifndef INCLUDED_trilateralGluonChange_AppGL
 #include <trilateralGluonChange/AppGL.h>
 #endif
@@ -24,7 +21,6 @@ extern "C" void __hxcpp_lib_main();
 void __hxcpp_main() {
 {
 	::TrilateralGluonSVG_obj::main();
-	::haxe::EntryPoint_obj::run();
 }
 	}
 

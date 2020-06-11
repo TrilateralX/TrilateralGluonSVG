@@ -20,10 +20,13 @@ class TrilateralGluonSVG extends AppGL {
     var quadtest_d = "M200,300 Q400,50 600,300 T1000,300";
     var cubictest_d = "M100,200 C100,100 250,100 250,200S400,300 400,200";
     static function main() {
-        new TrilateralGluonSVG( 1000, 1000 );
+        trace('testing');
+        var tg = new TrilateralGluonSVG( 1000, 1000 );
+        tg.createWindow();
     }
     public function new( width: Int, height: Int ){
         super( width, height );
+        trace('new');
     }
     override
     public function draw( pen: Pen ){
@@ -31,6 +34,7 @@ class TrilateralGluonSVG extends AppGL {
         cubicSVG( pen );
         pen.currentColor = Blue;
         quadSVG( pen );
+        trace('draw');
     }
     function cubicSVG( pen: Pen ){
         var sketch = new Sketch( pen, StyleSketch.Fine, StyleEndLine.both );

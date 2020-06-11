@@ -19,9 +19,6 @@
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
 #endif
-#ifndef INCLUDED_haxe_EntryPoint
-#include <haxe/EntryPoint.h>
-#endif
 #ifndef INCLUDED_glfw_GLFWWindowSizeHandler
 #include <glfw/GLFWWindowSizeHandler.h>
 #endif
@@ -136,20 +133,8 @@
 #ifndef INCLUDED_haxe_NativeStackTrace
 #include <haxe/NativeStackTrace.h>
 #endif
-#ifndef INCLUDED_haxe_MainLoop
-#include <haxe/MainLoop.h>
-#endif
-#ifndef INCLUDED_haxe_MainEvent
-#include <haxe/MainEvent.h>
-#endif
 #ifndef INCLUDED_haxe_Exception
 #include <haxe/Exception.h>
-#endif
-#ifndef INCLUDED_sys_thread_Lock
-#include <sys/thread/Lock.h>
-#endif
-#ifndef INCLUDED_sys_thread_Mutex
-#include <sys/thread/Mutex.h>
 #endif
 #ifndef INCLUDED_haxe_IMap
 #include <haxe/IMap.h>
@@ -212,7 +197,6 @@ __files__boot();
 ::trilateral3::nodule::PenNodule_obj::__register();
 ::trilateral3::math::_Algebra::Algebra_Statics__obj::__register();
 ::haxe::Log_obj::__register();
-::haxe::EntryPoint_obj::__register();
 ::glfw::GLFWWindowSizeHandler_obj::__register();
 ::glfw::GLFWMouseWheelHandler_obj::__register();
 ::glfw::GLFWMouseButtonHandler_obj::__register();
@@ -251,11 +235,7 @@ __files__boot();
 ::haxe::ds::StringMap_obj::__register();
 ::haxe::ValueException_obj::__register();
 ::haxe::NativeStackTrace_obj::__register();
-::haxe::MainLoop_obj::__register();
-::haxe::MainEvent_obj::__register();
 ::haxe::Exception_obj::__register();
-::sys::thread::Lock_obj::__register();
-::sys::thread::Mutex_obj::__register();
 ::haxe::IMap_obj::__register();
 ::haxe::_CallStack::CallStack_Impl__obj::__register();
 ::gluon::webgl::native::GLShader_obj::__register();
@@ -282,7 +262,6 @@ __files__boot();
 ::glfw::GLFWMouseButtonHandler_obj::__boot();
 ::glfw::GLFWMouseWheelHandler_obj::__boot();
 ::glfw::GLFWWindowSizeHandler_obj::__boot();
-::haxe::EntryPoint_obj::__boot();
 ::trilateral3::math::_Algebra::Algebra_Statics__obj::__boot();
 ::trilateral3::nodule::PenNodule_obj::__boot();
 }
