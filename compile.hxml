@@ -8,6 +8,7 @@
 -lib pallette
 -lib hxPolyK
 -lib poly2trihx 
+-lib linc_glfw
 
 -lib kitGL
 
@@ -32,6 +33,8 @@
 
 # disable C++ compilation
 # -D no-compilation
+-D mac
+-D HXCPP_M64
 
 # -D HXCPP_CLANG=1
 # -D HXCPP_M64=1

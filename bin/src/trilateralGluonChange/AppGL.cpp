@@ -5,6 +5,10 @@
 #define INCLUDED_c8a65390b4b62196
 #include "/usr/local/lib/haxeLibrary/gluon/git/src/gluon/webgl/native/ES2Context.h"
 #endif
+#ifndef INCLUDED_66c800784bc86d2f
+#define INCLUDED_66c800784bc86d2f
+#include "linc_glfw.h"
+#endif
 #ifndef INCLUDED_2710e462964f946c
 #define INCLUDED_2710e462964f946c
 #include "stdlib.h"
@@ -72,6 +76,21 @@ void AppGL_obj::__construct(int width_,int height_){
 	this->gl = ::trilateralGluonChange::AppGL_obj::gl_;
 	this->width = width_;
 	this->height = height_;
+	void();
+	if (::hx::IsNotEq( glfwInit(),0 )) {
+		::cpp::Pointer<  GLFWmonitor > tmp = null();
+		::cpp::Pointer<  GLFWwindow > tmp1 = null();
+		::cpp::Pointer<  GLFWmonitor > tmp2 = tmp;
+		::cpp::Pointer<  GLFWwindow > tmp3 = tmp1;
+		::cpp::Pointer<  GLFWwindow > window = glfwCreateWindow(1000,1000,HX_("trilateralGluonChange",53,d5,ec,4e),tmp2,tmp3);
+		glfwMakeContextCurrent(window);
+		while((glfwWindowShouldClose(window) != 1)){
+			glfwPollEvents();
+		}
+	}
+	else {
+		HX_STACK_DO_THROW(::haxe::Exception_obj::thrown(HX_("GLFW init fail",04,bf,61,bb)));
+	}
 	::trilateralGluonChange::AppGL_obj::appGL = ::hx::ObjectPtr<OBJ_>(this);
 	{
 		 ::gluon::webgl::native::GLContext gl = this->gl;

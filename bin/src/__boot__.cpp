@@ -22,6 +22,24 @@
 #ifndef INCLUDED_haxe_EntryPoint
 #include <haxe/EntryPoint.h>
 #endif
+#ifndef INCLUDED_glfw_GLFWWindowSizeHandler
+#include <glfw/GLFWWindowSizeHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWMouseWheelHandler
+#include <glfw/GLFWMouseWheelHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWMouseButtonHandler
+#include <glfw/GLFWMouseButtonHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWMouseMoveHandler
+#include <glfw/GLFWMouseMoveHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWKeyHandler
+#include <glfw/GLFWKeyHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWCharHandler
+#include <glfw/GLFWCharHandler.h>
+#endif
 #ifndef INCLUDED_typedarray_Uint8ArrayImpl
 #include <typedarray/Uint8ArrayImpl.h>
 #endif
@@ -109,6 +127,9 @@
 #ifndef INCLUDED_haxe_io_ArrayBufferViewImpl
 #include <haxe/io/ArrayBufferViewImpl.h>
 #endif
+#ifndef INCLUDED_haxe_ds_StringMap
+#include <haxe/ds/StringMap.h>
+#endif
 #ifndef INCLUDED_haxe_ValueException
 #include <haxe/ValueException.h>
 #endif
@@ -129,6 +150,9 @@
 #endif
 #ifndef INCLUDED_sys_thread_Mutex
 #include <sys/thread/Mutex.h>
+#endif
+#ifndef INCLUDED_haxe_IMap
+#include <haxe/IMap.h>
 #endif
 #ifndef INCLUDED_haxe__CallStack_CallStack_Impl_
 #include <haxe/_CallStack/CallStack_Impl_.h>
@@ -153,6 +177,12 @@
 #endif
 #ifndef INCLUDED_gluon_webgl__GLContext_GLContext_Impl_
 #include <gluon/webgl/_GLContext/GLContext_Impl_.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWJoystickHandler
+#include <glfw/GLFWJoystickHandler.h>
+#endif
+#ifndef INCLUDED_glfw_GLFWErrorHandler
+#include <glfw/GLFWErrorHandler.h>
 #endif
 #ifndef INCLUDED_dsHelper_flatInterleave_core__Flat32_Flat32_Impl_
 #include <dsHelper/flatInterleave/core/_Flat32/Flat32_Impl_.h>
@@ -183,6 +213,12 @@ __files__boot();
 ::trilateral3::math::_Algebra::Algebra_Statics__obj::__register();
 ::haxe::Log_obj::__register();
 ::haxe::EntryPoint_obj::__register();
+::glfw::GLFWWindowSizeHandler_obj::__register();
+::glfw::GLFWMouseWheelHandler_obj::__register();
+::glfw::GLFWMouseButtonHandler_obj::__register();
+::glfw::GLFWMouseMoveHandler_obj::__register();
+::glfw::GLFWKeyHandler_obj::__register();
+::glfw::GLFWCharHandler_obj::__register();
 ::typedarray::Uint8ArrayImpl_obj::__register();
 ::typedarray::_Uint8Array::Uint8Array_Impl__obj::__register();
 ::typedarray::Int32ArrayImpl_obj::__register();
@@ -212,6 +248,7 @@ __files__boot();
 ::haxe::io::_Float32Array::Float32Array_Impl__obj::__register();
 ::haxe::io::Bytes_obj::__register();
 ::haxe::io::ArrayBufferViewImpl_obj::__register();
+::haxe::ds::StringMap_obj::__register();
 ::haxe::ValueException_obj::__register();
 ::haxe::NativeStackTrace_obj::__register();
 ::haxe::MainLoop_obj::__register();
@@ -219,6 +256,7 @@ __files__boot();
 ::haxe::Exception_obj::__register();
 ::sys::thread::Lock_obj::__register();
 ::sys::thread::Mutex_obj::__register();
+::haxe::IMap_obj::__register();
 ::haxe::_CallStack::CallStack_Impl__obj::__register();
 ::gluon::webgl::native::GLShader_obj::__register();
 ::gluon::webgl::native::GLProgram_obj::__register();
@@ -227,6 +265,8 @@ __files__boot();
 ::gluon::webgl::native::GLBuffer_obj::__register();
 ::gluon::webgl::native::GLObject_obj::__register();
 ::gluon::webgl::_GLContext::GLContext_Impl__obj::__register();
+::glfw::GLFWJoystickHandler_obj::__register();
+::glfw::GLFWErrorHandler_obj::__register();
 ::dsHelper::flatInterleave::core::_Flat32::Flat32_Impl__obj::__register();
 ::dsHelper::flatInterleave::_FloatColorTriangles::FloatColorTriangles_Impl__obj::__register();
 ::TrilateralGluonSVG_obj::__register();
@@ -236,6 +276,12 @@ __files__boot();
 ::haxe::StackItem_obj::__boot();
 ::fracs::DifferencePreference_obj::__boot();
 ::haxe::Log_obj::__boot();
+::glfw::GLFWCharHandler_obj::__boot();
+::glfw::GLFWKeyHandler_obj::__boot();
+::glfw::GLFWMouseMoveHandler_obj::__boot();
+::glfw::GLFWMouseButtonHandler_obj::__boot();
+::glfw::GLFWMouseWheelHandler_obj::__boot();
+::glfw::GLFWWindowSizeHandler_obj::__boot();
 ::haxe::EntryPoint_obj::__boot();
 ::trilateral3::math::_Algebra::Algebra_Statics__obj::__boot();
 ::trilateral3::nodule::PenNodule_obj::__boot();

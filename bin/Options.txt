@@ -1,3 +1,4 @@
+HXCPP_M64=1
 dsHelper=0.0.1
 fracs=0.0.1
 gluon=0.0.1
@@ -10,6 +11,8 @@ hxcpp_api_level=400
 hxcpp_smart_strings=1
 justPath=0.0.2
 kitGL=0.0.1
+linc_glfw=0.0.0
+mac=1
 no-debug=1
 no_debug=1
 pallette=0.0.1

@@ -1,6 +1,14 @@
 #ifndef HXCPP_CONFIG_INCLUDED
 #define HXCPP_CONFIG_INCLUDED
 
+#if !defined(LINC_GLFW) && !defined(NO_LINC_GLFW)
+#define LINC_GLFW 
+#endif
+
+#if !defined(GLFW_INCLUDE_NONE) && !defined(NO_GLFW_INCLUDE_NONE)
+#define GLFW_INCLUDE_NONE 
+#endif
+
 #if !defined(GLEW_STATIC) && !defined(NO_GLEW_STATIC)
 #define GLEW_STATIC 
 #endif
